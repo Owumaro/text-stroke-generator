@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS text-stroke generator (text-shadow hack)</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css" rel="stylesheet">
+    <link href="bower_components/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+    <style>
+      @import url('http://fonts.googleapis.com/css?family=Open+Sans');
+      @import url('http://fonts.googleapis.com/css?family=Roboto');
+      @import url('http://fonts.googleapis.com/css?family=Oswald');
+      @import url('http://fonts.googleapis.com/css?family=Lato');
+      @import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro');
+      @import url('http://fonts.googleapis.com/css?family=PT+Sans');
+      @import url('http://fonts.googleapis.com/css?family=Droid+Sans');
+      @import url('http://fonts.googleapis.com/css?family=Raleway');
+      
+      textarea#preview {
+        width:100%;
+        height:80px;
+        border:0;
+        resize: none;
+        text-align: center;
+        line-height: 75px;
+        outline: none;
+      }
+
+      textarea#code {
+        width:100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>CSS text-stroke generator <small>(text-shadow hack)</small></h1>
+      </div>
+
+      <h2>Preview</h2>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <textarea id="preview">Hello world !</textarea>
+        </div>
+      </div>
+
+      <h2>Settings</h2>
+
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Font-family</label>
+          <div class="col-sm-2">
+            <select id="fontFamily" class="form-control">
+              <optgroup label="Classics">
+              <option>Arial</option>
+              <option>Calibri</option>
+              <option>Helvetica</option>
+              <option>Times</option>
+                </optgroup>
+              <optgroup label="Google fonts">
+              <option>Droid Sans</option>
+              <option>Lato</option>
+              <option>Open Sans</option>
+              <option>Oswald</option>
+              <option>PT Sans</option>
+              <option>Raleway</option>
+              <option>Roboto</option>
+              <option>Source Sans Pro</option>
+                </optgroup>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Font-color</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="fontColor" value="#000000" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Font-size</label>
+          <div class="col-sm-2">
+            <input id="fontSize" type="number" data-slider-min="0" data-slider-max="70" data-slider-step="1" data-slider-value="32"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Stroke-color</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="strokeColor" value="#2bbfff" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Stroke-size</label>
+          <div class="col-sm-2">
+            <input id="strokeSize" type="number" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="3"/>
+          </div>
+        </div>
+      </form>
+
+      <h2>Code</h2>
+
+      <pre></pre>
+
+      <h2>About</h2>
+
+      <p>The goal of this tool is to be able to create a text stroke effect, like Photoshop's layer stroke style, directly on a web text.</p>
+      <p>Webkit has a similar CSS property since 2006, <a href="https://www.webkit.org/blog/85/introducing-text-stroke/" target="_blank">-webkit-text-stroke</a>, but it never became a standard. It looks nice, but doesn't provide a way to choose if the stroke will be inside, on the middle, or outside of the text.</p>
+      <p>The feature was added to the CSS3 text properties in 2007 as <a href="http://www.w3.org/TR/2007/WD-css3-text-20070306/#text-outline" target="_blank">text-outline</a> but was never supported by browsers (see <a href="http://www.w3schools.com/cssref/css3_pr_text-outline.asp" target="_blank">w3schools</a>) and disappeared later (see current <a href="http://www.w3.org/TR/css-text-decor-3/" target="_blank">CSS text decoration</a>).</p>
+      <p>On the other hand, the <a href="http://www.w3schools.com/cssref/css3_pr_text-shadow.asp" target="_blank">text-shadow</a> CSS property works on most modern browsers. This tool uses multiple text-shadows to simulate an outer stroke. This solution is 100% CSS.</p>
+    </div>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+    <script src="bower_components/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

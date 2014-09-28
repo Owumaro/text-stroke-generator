@@ -1,0 +1,22 @@
+{
+  "name": "text-stroke-generator",
+  "main": "index.js",
+  "version": "0.0.0",
+  "authors": [
+    "Owumaro <antoinematyja@free.fr>"
+  ],
+  "description": "A cross-browser CSS text-stroke generator (using CSS text-shadow hack).",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "mjolnic-bootstrap-colorpicker": "~2.0.0",
+    "seiyria-bootstrap-slider": "~4.0.1"
+  }
+}
